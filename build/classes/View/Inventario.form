@@ -45,7 +45,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                           <Component id="Butsalir" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -56,6 +56,7 @@
                               <Component id="txtAlimento" max="32767" attributes="0"/>
                               <Component id="txtTipAli" max="32767" attributes="0"/>
                               <Component id="TxtCantidad" max="32767" attributes="0"/>
+                              <Component id="Canticompratxt" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -81,6 +82,8 @@
                   <Component id="TxtCantidad" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   <Component id="Butordenar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="Canticompratxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="Butsalir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -152,6 +155,8 @@
         <Component class="javax.swing.JTextField" name="txtTipAli">
         </Component>
         <Component class="javax.swing.JTextField" name="TxtCantidad">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Canticompratxt">
         </Component>
       </SubComponents>
     </Container>

@@ -61,6 +61,7 @@ public class Inventario extends javax.swing.JFrame {
         txtAlimento = new javax.swing.JTextField();
         txtTipAli = new javax.swing.JTextField();
         TxtCantidad = new javax.swing.JTextField();
+        Canticompratxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +117,8 @@ public class Inventario extends javax.swing.JFrame {
                             .addComponent(Butordenar, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                             .addComponent(txtAlimento)
                             .addComponent(txtTipAli)
-                            .addComponent(TxtCantidad))))
+                            .addComponent(TxtCantidad)
+                            .addComponent(Canticompratxt))))
                 .addGap(78, 78, 78)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -136,6 +138,8 @@ public class Inventario extends javax.swing.JFrame {
                 .addComponent(TxtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(Butordenar)
+                .addGap(38, 38, 38)
+                .addComponent(Canticompratxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Butsalir)
                 .addGap(36, 36, 36))
@@ -165,13 +169,13 @@ public class Inventario extends javax.swing.JFrame {
     private void ButordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButordenarActionPerformed
         try {
             if (regisAnimalTab().getAlimento().equals(ordenar()[0])){
-                if (Integer.parseInt(regisAnimalTab().getCantidadAlimento()) > 0){
+                if (Integer.parseInt(regisAnimalTab().getCantidadAlimento()) > Integer.parseInt(Canticompratxt.getText())){
                     TxtCantidad.setText(ordenar()[2]);
                     FirebaseSaveObject.conexionglobal.saveFree(regisAnimalTab(),regisAnimalTab().getAlimento());
                     JOptionPane.showMessageDialog(this, "Se Tomo el pedido correctamente");
                 } 
                 else{
-                    JOptionPane.showMessageDialog(this, "No hay existencias e el inventario");
+                    JOptionPane.showMessageDialog(this, "No hay existencias e el inventario o son inferiores a las deseadas");
                 }
             }
             else {
@@ -224,8 +228,8 @@ public class Inventario extends javax.swing.JFrame {
     public String[] ordenar(){  
         String[] fila = getSelectedRowData(comidaapp.ComidaApp.tablaGlobal.getjTable1());
         int inventario = Integer.parseInt(fila[2]);
-        if (inventario > 0){
-            int nwinvent = (inventario - 1);
+        if (inventario > Integer.parseInt(Canticompratxt.getText())){
+            int nwinvent = (inventario - Integer.parseInt(Canticompratxt.getText()));
             String newinventario = Integer.toString(nwinvent);
             fila[2] = newinventario;
             return fila;
@@ -243,6 +247,7 @@ public class Inventario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Butordenar;
     private javax.swing.JButton Butsalir;
+    private javax.swing.JTextField Canticompratxt;
     private javax.swing.JTextField TxtCantidad;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
